@@ -1,0 +1,24 @@
+{
+  "name": "data-processing-cli",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/mikepetrusha/node-data-processing-cli#readme",
+  "engines": {
+    "node": ">=24.10.0",
+    "npm": ">=10.9.2"
+  },
+  "bugs": {
+    "url": "https://github.com/mikepetrusha/node-data-processing-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikepetrusha/node-data-processing-cli.git"
+  },
+  "license": "ISC",
+  "author": "mikepetrusha",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/main.js"
+  }
+}

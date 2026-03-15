@@ -2,6 +2,7 @@ import readline from "node:readline";
 import { handleCd, handleLs, handleUp } from "./navigation.js";
 import { csvToJson } from "./commands/csvToJson.js";
 import { parseArgs } from "./utils/argParser.js";
+import { jsonToCsv } from "./commands/jsonToCsv.js";
 
 export const startRepl = (initDir) => {
   let currentDir = initDir;
@@ -39,6 +40,10 @@ export const startRepl = (initDir) => {
         }
         case "csv-to-json": {
           await csvToJson(currentDir, args);
+          break;
+        }
+        case "json-to-csv": {
+          await jsonToCsv(currentDir, args);
           break;
         }
         case ".exit": {

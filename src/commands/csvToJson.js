@@ -4,7 +4,10 @@ import { Transform } from "node:stream";
 import { resolvePath } from "../utils/pathResolver.js";
 
 export const csvToJson = async (currentDir, args) => {
-  if (!args.input || !args.output) throw new Error("Invalid input");
+  if (!args.input || !args.output) {
+    console.log("Invalid input");
+    return;
+  }
 
   const inputPath = resolvePath(currentDir, args.input);
   const outputPath = resolvePath(currentDir, args.output);

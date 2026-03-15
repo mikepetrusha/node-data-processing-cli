@@ -4,6 +4,8 @@ import { csvToJson } from "./commands/csvToJson.js";
 import { parseArgs } from "./utils/argParser.js";
 import { jsonToCsv } from "./commands/jsonToCsv.js";
 import { count } from "./commands/count.js";
+import { hash } from "./commands/hash.js";
+import { hashCompare } from "./commands/hashCompare.js";
 
 export const startRepl = (initDir) => {
   let currentDir = initDir;
@@ -49,6 +51,14 @@ export const startRepl = (initDir) => {
         }
         case "count": {
           await count(currentDir, args);
+          break;
+        }
+        case "hash": {
+          await hash(currentDir, args);
+          break;
+        }
+        case "hash-compare": {
+          await hashCompare(currentDir, args);
           break;
         }
         case ".exit": {

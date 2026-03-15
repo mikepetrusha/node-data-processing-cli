@@ -3,6 +3,7 @@ import { handleCd, handleLs, handleUp } from "./navigation.js";
 import { csvToJson } from "./commands/csvToJson.js";
 import { parseArgs } from "./utils/argParser.js";
 import { jsonToCsv } from "./commands/jsonToCsv.js";
+import { count } from "./commands/count.js";
 
 export const startRepl = (initDir) => {
   let currentDir = initDir;
@@ -44,6 +45,10 @@ export const startRepl = (initDir) => {
         }
         case "json-to-csv": {
           await jsonToCsv(currentDir, args);
+          break;
+        }
+        case "count": {
+          await count(currentDir, args);
           break;
         }
         case ".exit": {

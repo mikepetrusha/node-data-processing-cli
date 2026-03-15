@@ -1,5 +1,7 @@
 import readline from "node:readline";
 import { handleCd, handleLs, handleUp } from "./navigation.js";
+import { csvToJson } from "./commands/csvToJson.js";
+import { parseArgs } from "./utils/argParser.js";
 
 export const startRepl = (initDir) => {
   let currentDir = initDir;
@@ -20,6 +22,7 @@ export const startRepl = (initDir) => {
     }
 
     const [command, ...rest] = trimmed.split(/\s+/);
+    const args = parseArgs(rest);
 
     try {
       switch (command) {
@@ -32,6 +35,10 @@ export const startRepl = (initDir) => {
         }
         case "ls": {
           await handleLs(currentDir);
+          break;
+        }
+        case "csv-to-json": {
+          await csvToJson(currentDir, args);
           break;
         }
         case ".exit": {
